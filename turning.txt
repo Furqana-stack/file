@@ -1,0 +1,225 @@
+caps turn 1:::
+worksetup:
+jaw = -250  cz = 10  cid = 0 cod = 184  ok
+
+symbol -> 0,0
+60
+-80
+120
+-110
+180
+-200
+
+symbol -> select fig in upper line -> Yes
+
+Yellow Symbol -> L = 240  D=184  z=2  ok
+
+Go to Machining:
+Turning -> Plain face ->New tool-> ok
+Select pts 
+DOC=2
+
+Turning -> ounter turn ->Select existing tool -> ok
+Select pts
+DOC=2   ok
+
+Turning -> Finish face -> new tool -> edit geom -> nose rad=0.1 ok ok
+select pts
+by software select
+
+Turning -> finish turn -> existing 2nd tool(MTJ---) ok
+select pts
+software select
+
+Go to toolpath
+
+
+
+
+
+
+
+caps turn2:::::
+jaw= -90  cz=10  cid=46 cod=155 ok
+
+draw -> multiline
+50,-80
+50,-65
+55.5,-65
+55.5,-40  Done
+
+Again Multiline
+82.85,-40
+82.85,-9.5
+88.2,-9.5
+88.2,0
+116,0
+116,-27.5
+131,-27.5
+146,-33.5
+146,-85 Done
+
+Circle -> center radius (0,-24)
+radius 41.425 trim acc to shape
+
+Multiline
+46,-87
+46,2
+150,2
+150,-95 ok done
+
+left of yellow box -> select inside line shape -> Yes
+Click on yellow symol -> Select counter -> select outer line -> Yes
+
+Move to machining
+Turning ->plane face -> new tool -> ok
+select pts
+DOC=2 ok
+
+Counter turn -> sel existing tool -> DOC =2 ok
+sel pts 
+DOC=2 ok
+
+counter turn -> new tool -> internal turn -> 12 dia boring -> edit geom -> 0.1 nose rad   ok
+sel pts
+DOC=2 ok
+
+Finish face-> new tool -> ok
+sel pts
+sel by software  ok
+
+sel pts
+Sel exist finish turn - sel software ok
+
+Finish turn -> edit geom(MLTN--)from right side column --> 0.1 nose rad ok ok
+
+Turning -> Finish turn-> new tool-> inernal turn -> 12 dia boring -> edit geom-> 0.1 nose rad ok
+
+sel pts -> sel software ok
+
+Go to toolpath
+
+
+
+
+
+
+
+Programs:
+
+External Threading::: L=100 D=80
+
+G50 G21
+G0 X00 Z00
+M06 T0101 S100
+G76 P020060
+G76 X76 Z-50 P2000 F2
+G00 X80 Z0
+M30
+
+
+
+
+
+
+D Mill Program:::
+
+G90
+GOO XO YO Z2
+M06 T04 S1000 
+G01 X9 Y-15 F2
+Z-1
+X9 Y115
+X28 Y115
+X28 Y-15
+X47 Y-15
+X47 Y115
+X66 Y115
+X66 Y-15
+X85 Y-15
+X85 Y115
+X95 Y115
+X95 Y-15
+X115 Y-15
+X115 Y115
+Z2
+X-15 Y-10 Z2
+M06 T01 S100 
+G01 X30 Y25 F2
+Z-12
+X30 Y75
+X65 Y75
+G02 R25 X65 Y25 F2
+G01 X30 Y25 F2
+Z2
+X-10 Y-10 Z2
+G00 X-10 Y-10
+
+
+
+
+
+
+
+EX 2: 
+
+G21 G90
+G92 XO YO ZO
+M06 T01 S3000
+G00 Z50
+X50 Y-20
+G01 Z-10 F100
+Y140
+Z-20
+X50 Y-20
+Z-30
+X50 Y120
+G00 250
+XO YO
+M06 T02 S3000.
+G00 250
+X50 Y-50
+G01 Z-30 F100
+X50 Y120
+G00 Z50
+XO YO
+M30
+
+
+
+
+
+
+Ex3: 3 dots wala Program
+
+G21 G90
+G00 XO YO Z5
+M06 T01 S3000 
+G81 X25 Y35 Z-6 R2 F125
+X55 Y50
+X75 Y70
+G80
+G00 Z5
+X0 Y0
+M06 T02 S3000
+G81 X25 Y35 Z-20 R2 F125
+X55 Y50
+X75 Y70
+G80
+G00 Z5
+XO YO
+M06 T03 S3000 
+G84 X25 Y35 Z-20 R2 F25
+X55 Y50
+X75 Y70
+G80
+G00 Z5
+X0 Y0
+M06 T04 S1000 
+G81 X25 Y35 Z-3 R2 F150
+X55 Y50
+X75 Y70
+G80
+G00 Z50
+XO YO
+M30
